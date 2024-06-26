@@ -1,7 +1,9 @@
-from flask import Flask, jsonify
+# app/main.py
+
+from flask import Blueprint, jsonify
 import sqlite3
 
-app = Flask(__name__)
+app = Blueprint('main', __name__)
 
 # Function to execute a query and fetch all results
 def execute_query(query):
@@ -55,9 +57,3 @@ def list_clients():
     ]
     return jsonify(clients_list)
 
-# main function
-def main():
-    app.run(debug=True)
-
-if __name__ == "__main__":
-    main()
